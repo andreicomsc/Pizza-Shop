@@ -1,4 +1,4 @@
-# Web-App_Pizza-Shop
+# Pizza Shop Web Application
 See gallery for details.
 
 ## Installation
