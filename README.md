@@ -8,6 +8,7 @@ See gallery for details.
 4. Activate the created virtual environment.
 5. Install packages from "requirements.txt".
 6. Run the application:
-   set FLASK_ENV=development
-   set FLASK_APP=wsgi
-   flask run
+
+set FLASK_ENV=development
+set FLASK_APP=wsgi
+flask run
