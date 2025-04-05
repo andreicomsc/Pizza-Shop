@@ -1,5 +1,4 @@
 # Pizza Shop Web Application
-See gallery for details.
 
 ## Installation
 1. Open command line.
