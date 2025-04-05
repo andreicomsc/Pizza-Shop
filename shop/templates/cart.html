@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}  
+  
+  {% if total == 0 %}
+    <h1>Your shopping basket is empty.</h1>
+  {% else %}
+    <h1>Shopping basket</h1>
+      
+    <table id="cart-table">
+      {% for i, j in session["carts"][current_user.username].items() %}          
+        <tr>            
+          <td class="round-left-corners-20">
+            <a href="{{ url_for('item', item_id=i) }}">
+              <img src="{{ url_for('static', filename='images/' + j.picture ) }}" height="150" width="150">
+            </a>           
+          </td>            
+          <td><a href="{{ url_for('item', item_id=i) }}">{{ j.name }}</a></td>
+          <td>Quantity 
+            <form action="{{ url_for('remove') }}" method="POST">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              <input type="hidden" name="item_id" value="{{ i }}">          
+              <input class="quantity" type="number" name="quantity" value="{{ j['quantity'] }}" min="1" max="{{ j['quantity'] }}">
+              <button class="remove" type="submit">Remove</button>
+            </form>
+          </td>
+          {% set subtotal = j.quantity * j.price %}
+          <td class="round-right-corners-20">£<span class="item_price">{{ "%.2f" | format( subtotal | float ) }}</span></td>          
+        </tr> 
+      {% endfor %}        
+    </table>    
+  
+    <h1>
+      <a href="{{ url_for('home') }}"><button>Continue shopping</button></a>
+      &nbsp Total price: £<span id="total_price">{{ "%.2f" | format( total | float ) }}</span> &nbsp 
+      <a href="{{ url_for('checkout') }}"><button id="checkout">Checkout</button></a>
+    </h1>
+  {% endif %}   
+  
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <p id="banner">Andrew's Pizza shop - Call now: 0777 8682 901</p>
+
+  <div class="search">      
+    <div>
+      <form id="search-box" action="{{ url_for('home') }}" >
+        <input id="search-text" type="search" name="query" placeholder="Search">
+        <button id="search-btn" type="submit">&#x1F50D;</button>
+      </form> 
+    </div>
+
+    <div>
+      <form id="sort" action="{{ url_for('home') }}" method="POST">
+        {{ form.csrf_token }}
+        <span>{{ form.sort_type.label }}</span>
+        <span>{{ form.sort_type }}</span>
+      </form>
+    </div>
+  </div>
+
+  <p id="search-results">
+    {% if "none" not in query and query|length > 0 %}
+      Search results for: {{ query | join(" ") }}
+    {% endif %}
+  </p>
+
+  <div id="gallery">
+    {% for i in items %}
+      <div class="gallery_item">
+        <a href="{{ url_for('item', item_id=i.itemid) }}">
+          <img src="{{ url_for('static', filename='images/' + i.picture) }}" height="250" width="250">          
+        </a>        
+        <p class="item_name">{{ i.name }}</p>
+        <p class="item_description">{{ i.description }}</p>        
+        <p>£<span class="item_price">{{ "%.2f" | format( i.price | float ) }}</span></p>
+        <hr/>
+        <p>
+          <form action="{{ url_for('addcart') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+            <button class="details"><a href="{{ url_for('item', item_id=i.itemid) }}">Details</a></button>
+            <input type="hidden" name="item_id" value="{{ i.itemid }}"> 
+            <input type="hidden" name="quantity" value="1">                      
+            <button class="add_to_cart" type="submit">Add to Basket</button>
+          </form>
+        </p>
+        <hr>
+        {% if reviews[i.itemid] %}
+          <a href="{{ url_for('item', item_id=i.itemid) }}"><p>Reviews({{ reviews[i.itemid] }})</p></a>
+        {% else %}
+          <a href="{{ url_for('item', item_id=i.itemid) }}"><p>Reviews(0)</p></a>
+        {% endif %}
+      </div>    
+    {% endfor %}
+  </div>  
+
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="item">
+    <img src="{{ url_for('static', filename='images/' + item.picture) }}" height="440" width="440">
+    <div>
+      <p id="item-name">{{ item.name }}</p>
+      <hr>
+      <p>{{ item.description2 }}</p>
+      <hr>
+      <p>Ecological footprint: {{ item.eco }}g CO2e</p>
+      <hr>
+      <p>Price: £{{ "%.2f" | format( item.price|float ) }}</p>
+      <hr>      
+      <form action="{{ url_for('addcart') }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <input type="hidden" name="item_id" value="{{ item.itemid }}">          
+        <p>
+          <input class="quantity" type="number" name="quantity" value="1" min="1">
+          &nbsp&nbsp&nbsp
+          <button type="submit">Add to Basket</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <h1>Reviews</h1>  
+  <table>
+    {% for i in reviews %}    
+      <tr>      
+        <td class="round-left-corners-10">{{ i.reviewnick }}</td>      
+        <td id="review-text" class="round-right-corners-10">{{ i.reviewtext }}</td>    
+      </tr>   
+    {% endfor %}    
+    <form action="{{ url_for('addreview', item_id=item.itemid) }}" method="POST">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      <tr id="leave-review-field">      
+        <td id="leave-review-nick">
+          <input type="text" name="review_nick" value="{{ current_user.username }}">
+        </td>      
+        <td id="leave-review-text">
+          <input type="text" name="review_text" placeholder="Type your review here">          
+          <button id="leave-review-button" type="submit">Leave review</button>
+        </td>       
+      </tr>  
+    </form>
+  </table>
+
+{% endblock content %}

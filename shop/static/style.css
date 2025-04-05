@@ -1,0 +1,278 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: comic sans ms, arial, sans-serif;
+  text-align: center;
+  text-decoration: none;
+}
+
+body {
+  background: url(background.jpg) no-repeat;
+  background-size: cover;
+  margin-bottom: 50px;
+  color: #ffc999;
+}
+
+a {
+  color: #ffc999;
+}
+
+h1 {
+  margin: 50px 0 10px 0;
+  color: black;
+}
+
+small {
+  color: red;
+}
+
+img, fieldset, .gallery_item, .item {
+  border-radius: 20px;
+}
+
+fieldset, tr, .gallery_item, .item {
+  background: rgba(0, 0, 0, 0.75)
+}
+
+fieldset {
+  width: 550px;
+  margin: 50px auto;
+  padding-right: 150px;
+  text-align: right;
+}
+
+h2 {
+  text-align: right;
+}
+
+fieldset p {
+  margin-left: 40px;
+}
+
+fieldset a {
+  margin-left: 10px;
+  text-decoration: underline;
+}
+
+button, input, #submit {
+  border-radius: 10px;
+  padding: 5px;
+  background: green;
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+}
+
+.details, .remove {
+  background: #ffc999;
+}
+
+.details a {
+  color: black;
+}
+
+input {
+  background: #ffc999;
+  cursor: auto;
+}
+
+.quantity {
+  width: 50px;
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+nav {
+  position: relative;
+  width: 100%;
+  background: black;
+  letter-spacing: 3px;
+}
+
+nav p, nav a {
+  display: inline-block;
+  margin: 10px 50px 10px 50px;
+  border-radius: 10px;
+  padding :5px;
+  font-size : 25px;
+  font-weight: bold;
+}
+
+nav p {
+  text-decoration-line: underline;
+}
+
+nav a:hover{
+  background: yellow;
+  color: red;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+#banner {
+  font-family: yellowtail, courgette, brush script mt, curlz mt, great vibes, chiller, comic sans ms, arial, sans-serif;
+  font-size : 55px;
+  text-transform: capitalize;
+  color: yellow;
+  text-shadow: 4px 4px 4px red;
+}
+
+.search {
+  margin-bottom: 3px;
+  width: 1290px;/*1570px;*/
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 30px;
+  justify-content: right;
+  align-items:center;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+#search-box {
+  border-radius: 40px;
+  padding: 10px;
+  background: #ffc999;
+}
+
+#search-text {
+  outline: none;
+  border: none;
+  padding: 0;
+  background: none;
+  line-height: 35px;
+  width: 0px;
+  transition: 0.5s;
+}
+
+#search-btn {
+  display: flex;
+  float: right;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: yellow;
+  transition: 0.5s;
+}
+
+#search-btn {
+  font-size: 16px;
+}
+
+#search-box:hover > #search-text {
+  width: 650px;
+}
+
+#search-box:hover > #search-btn {
+  background: greenyellow;
+}
+
+#sort {
+  float: right;
+}
+
+#sort_type {
+  border-radius: 10px;
+}
+
+#search-results {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  gap: 75px;
+}
+
+.gallery_item {
+  border: 1px solid grey;
+}
+
+.item_name {
+  font-size: 20px;
+}
+
+.gallery_item form {
+  padding: 5px;
+}
+
+.item {
+  margin: 50px auto 0 auto;
+  width: max-content;
+  display: grid;
+  grid-template-columns: repeat(2, 440px);
+}
+
+.item p {
+  margin: 18px 0px;
+  font-size: 20px;
+}
+
+#item-name {
+  font-size: 30px;
+}
+
+table {
+  margin: 0 auto;
+  width: 880px;
+  border-spacing: 0 1px;
+  font-size: 20px;
+}
+
+#cart-table td {
+  padding-top: 10px;
+  font-size: 30px;
+}
+
+.round-left-corners-10 {
+  border-radius: 10px 0 0 10px;
+}
+
+.round-right-corners-10 {
+  border-radius: 0 10px 10px 0;
+}
+
+.round-left-corners-20 {
+  border-radius: 20px 0 0 20px;
+}
+
+.round-right-corners-20 {
+  border-radius: 0 20px 20px 0;
+}
+
+#review-text {
+  text-align: left;
+  font-size: 16px;
+}
+
+#leave-review-field {
+  background: none;
+}
+
+#leave-review-nick {
+  width: 20%;
+}
+
+#leave-review-text {
+  text-align: left;
+}
+
+#leave-review-text input {
+  width: 83%;
+  text-align: left;
+}
+
+#leave-review-nick input, #leave-review-text input {
+  font-size: 14px;
+}
+
+#leave-review-button {
+  float: right;
+  width: max-content;
+  font-size: 14px;
+}

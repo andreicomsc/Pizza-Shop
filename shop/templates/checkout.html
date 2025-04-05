@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}  
+
+  <form class="checkout_form" action="" method="POST">
+    {{ form.csrf_token }}
+    <div>
+      <fieldset>
+        <br/><h2>Amount to pay: £{{ "%.2f" | format( total | float ) }}</h2>
+        
+        <br/>
+        {{ form.name.label }}
+        {% if form.name.errors %}
+          {{ form.name }}
+          {% for error in form.name.errors %}
+            <br/><small>{{ error }}</small>
+          {% endfor %}
+        {% else %}
+          {{ form.name }}
+        {% endif %}
+        
+        <br/><br/>
+        {{ form.card_no.label }}
+        {% if form.card_no.errors %}
+          {{ form.card_no }}
+          {% for error in form.card_no.errors %}
+            <br/><small>{{ error }}</small>
+          {% endfor %}
+        {% else %}
+          {{ form.card_no }}
+        {% endif %}   
+        <br/><br/>
+        {{ form.submit() }}
+        <br/><br/>
+      </fieldset>
+    </div>       
+  </form>  
+  
+{% endblock content %}
