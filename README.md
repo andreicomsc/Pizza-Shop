@@ -1,4 +1,4 @@
-# Pizza Shop Web Application
+# Pizza Shop Web app
 
 ## Installation
 1. Open command line.
