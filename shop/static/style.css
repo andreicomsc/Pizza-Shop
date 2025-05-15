@@ -6,7 +6,7 @@
   text-decoration: none;
 }
 
-body {
+body {  
   background: url(background.jpg) no-repeat;
   background-size: cover;
   margin-bottom: 50px;
@@ -186,7 +186,7 @@ nav a:hover{
   display: grid;
   grid-template-columns: repeat(4, max-content);
   justify-content: center;
-  gap: 75px;
+  gap: 30px 75px;
 }
 
 .gallery_item {
