@@ -1,4 +1,5 @@
 from flask import Flask
+from shop.key import KEY
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
@@ -6,7 +7,7 @@ from .csrf import csrf
 
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "5a5181f72c601bad3dbd17644c23a1ac"
+app.config["SECRET_KEY"] = KEY
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///shop.db"
 
