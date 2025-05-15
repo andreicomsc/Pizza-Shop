@@ -31,7 +31,7 @@
     {% for i in items %}
       <div class="gallery_item">
         <a href="{{ url_for('item', item_id=i.itemid) }}">
-          <img src="{{ url_for('static', filename='images/' + i.picture) }}" height="250" width="250">          
+          <img src="{{ url_for('static', filename='images/' + i.picture) }}" height="170" width="250">          
         </a>        
         <p class="item_name">{{ i.name }}</p>
         <p class="item_description">{{ i.description }}</p>        
@@ -55,5 +55,10 @@
       </div>    
     {% endfor %}
   </div>  
-
+  
+  <div id="about" class="gallery_item">
+    <p id="developer">Developed by Andrei Condratiuc | andreinnc@gmail.com</p>
+    <p id="disclaimer">This website is for Educational Purposes Only, and not intended for advertising or commercial gain.</p>
+  </div>
+  
 {% endblock content %}
