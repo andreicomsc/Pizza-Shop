@@ -12,7 +12,7 @@
       </form> 
     </div>
 
-    <div>
+    <div id="sort-box">
       <form id="sort" action="{{ url_for('home') }}" method="POST">
         {{ form.csrf_token }}
         <span>{{ form.sort_type.label }}</span>

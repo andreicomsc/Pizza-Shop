@@ -9,6 +9,14 @@
 
 
   <body>
+
+    <script>
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        alert("This app is optimised for Desktop only.");
+      }        
+    </script>
+
     <nav>
       {% if current_user.username %}
         <p>Hello {{ current_user.username }}</p>  
