@@ -11,8 +11,8 @@
   <body>
 
     <script>
-      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
+      const isMobile = /Mobi|Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      if (isMobile) {        
         alert("This app is optimised for Desktop only.");
       }        
     </script>
