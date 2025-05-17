@@ -31,7 +31,7 @@
     {% for i in items %}
       <div class="gallery_item">
         <a href="{{ url_for('item', item_id=i.itemid) }}">
-          <img src="{{ url_for('static', filename='images/' + i.picture) }}" height="170" width="250">          
+          <img class="img_home" src="{{ url_for('static', filename='images/' + i.picture) }}" height="170" width="250">          
         </a>        
         <p class="item_name">{{ i.name }}</p>
         <p class="item_description">{{ i.description }}</p>        

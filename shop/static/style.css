@@ -30,6 +30,10 @@ fieldset, .gallery_item, .item {
 }
 
 img {
+  border-radius: 20px;
+}
+
+.img_home {
   border-radius: 20px 20px 0 0;
 }
 

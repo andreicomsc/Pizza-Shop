@@ -146,12 +146,12 @@ def cart():
 @login_required
 def remove():
   item_id = request.form.get("item_id")
-  quantity = request.form.get("quantity")
-  q = int(quantity)   
-  if q == session["carts"][current_user.username][item_id]["quantity"]:
+  quantity = int(request.form.get("quantity"))
+  action = request.form.get("action")
+  if action == "remove":
     session["carts"][current_user.username].pop(item_id, None)
   else:
-    session["carts"][current_user.username][item_id]["quantity"] -= q
+    session["carts"][current_user.username][item_id]["quantity"] = quantity
   session.modified = True  
   return redirect(url_for("cart")) 
 
