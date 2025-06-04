@@ -11,10 +11,27 @@
   <body>
 
     <script>
-      const isMobile = /Mobi|Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      if (isMobile) {        
-        alert("This app is optimised for Desktop only.");
-      }        
+
+      function isMobile() {
+        return /Mobi|Mobile|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      }
+
+      function isPhone() {  
+        let screenWidth = screen.width;
+        let screenHeight = screen.height;
+        let screenRatio = 0;
+
+        if ( screenWidth > screenHeight ) { screenRatio = screenWidth / screenHeight }
+        else { screenRatio = screenHeight / screenWidth }
+        
+        if ( screenRatio > 2 ) { return true; }
+        else { return false; }
+      }
+
+      if ( isMobile() || isPhone() ) {
+        alert(`This application is optimised for Desktop only. Please switch to a PC/Laptop for the best experience.`);
+      }  
+      
     </script>
 
     <nav>
